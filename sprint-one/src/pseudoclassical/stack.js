@@ -3,7 +3,7 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   
 
-  this.someInstance = {};
+ // this.someInstance = {};
   this.storage = {};
   this.count = 0;
   
