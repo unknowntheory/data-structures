@@ -30,35 +30,42 @@ binaryMethods.insert = function(value) {
 };
 
 binaryMethods.contains = function(value) {
-  /* function search(node){
-   if node.value = value
-   return true;
-   check if value > node.value && node.right !== null
-   call search on node.right
-*/function search(node){
-  if (true) {
-  }
-  if (value < node.value && node.left !== null) {
-  
-  }
-  if (value < node.value && node.left === null) {
-    
-  }
-  if (value > node.value && node.right !== null) {
- 
-  }
+  var output = false;
 
-  if (value > node.value && node.right === null) {
-  
-  }
+  var search = function (node) {
+    if (node.value === value) {
+      output = true;
+    }
+    if (value < node.value && node.left !== null) {
+      search(node.left);
+    }
 
-}
+    if (value > node.value && node.right !== null) {
+      search(node.right);
+    }
 
-}
-search(this)
-
+  };
+  search(this);
+  return output;
 };
-binaryMethods.depthFirstLog = function() {
+
+binaryMethods.depthFirstLog = function(cb) {
+  
+  var traverse = function (node) {
+    cb(node.value);
+
+    if (node.left) {
+      traverse(node.left);
+    }
+
+    if (node.right) {
+      traverse(node.right);
+    }
+
+  };
+ 
+  traverse(this);
+
 };
 
 
