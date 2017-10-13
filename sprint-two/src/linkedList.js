@@ -70,4 +70,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
- */
+ *///     the complexity of a linked list is linear, O(n)
+
+
+
