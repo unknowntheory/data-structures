@@ -3,7 +3,7 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
   
-  list.addToTail = function(value) {
+  list.addToTail = function(value) { // time complexity = O(1)
 
     var newNode = Node(value);
     
@@ -20,7 +20,7 @@ var LinkedList = function() {
 
   };
 
-  list.removeHead = function() {
+  list.removeHead = function() { // time complexity = O(1)
     var output = list.head.value;
     
     list.head = list.head.next;
@@ -31,7 +31,7 @@ var LinkedList = function() {
     return output;
   };
 
-  list.contains = function(target) {
+  list.contains = function(target) { // time complexity = O(n)
     var output = false;
     var search = function(node) {
       if (node.value === target) {
@@ -65,7 +65,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
- *///     the complexity of a linked list is linear, O(n)
+ *///
 
 
 
