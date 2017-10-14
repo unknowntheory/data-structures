@@ -77,35 +77,19 @@ Graph.prototype.reassignNodeEdges = function(node, edgesArr) {
     return 'Second argement must be an array';
   }
 
-  var numbOfOriginalEdges = this.storage[node]['edges'].length;
-  var originalEdges = this.storage[node]['edges'];
-  for ( var i = 0; i < numbOfOriginalEdges; i++) {
-    this.removeEdge(node, originalEdges[i]);
-  }
+  this.storage[node]['edges'].forEach(function(x) {
+    this.removeEdge(node, x);
+  }, this);
 
-  for ( var i = 0; i < edgesArr.length; i++) {
-    var val = edgesArr[i];
-    if (this.storage[val] === undefined) {
-      this.addNode(val);
+  edgesArr.forEach(function(x) {
+    if (this.storage[x] === undefined) {
+      this.addNode(x);
     }
-    this.addEdge(val, node);
-  } 
-
+    this.addEdge(x, node);
+  }, this);
 };
 
-// 3, [4,5,6,9]
 
-// 3.edges = [1,2,10,7]
-
-// forEach(3.edges){ removeedge(3, i)  }
-
-// 3.edges.forEach(x){removeedge(3, x)
-// remov
-// }
-// [4,5,6,9].forEach(x) {
-// check if x exist
-// if not create node
-// connect 3 with x
 
 
 
