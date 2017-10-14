@@ -68,4 +68,25 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+  it('reassignNodeEdges should work', function() {
+    var connectToFive = function(item) {
+      if (item !== 5) {
+        graph.addEdge(item, 5);
+      }
+    };
+    graph.addNode(5);
+    graph.addNode(1);
+    graph.addNode(4);
+    graph.addNode(7);
+    graph.forEachNode(connectToFive);
+    graph.addNode(2);
+    graph.addEdge(2, 1);
+    graph.addEdge(2, 4);
+    graph.addEdge(1, 4);
+    graph.reassignNodeEdges(5, [2, 3, 7]);
+    expect(graph.hasEdge(5, 1)).to.equal(false);
+    expect(graph.hasEdge(7, 5)).to.equal(true);
+    expect(graph.hasEdge(3, 5)).to.equal(true);
+    expect(graph.hasEdge(2, 5)).to.equal(true);
+  });
 });
