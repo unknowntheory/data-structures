@@ -16,12 +16,12 @@ var extend = function(to, from) {
 
 var treeMethods = {};
 
-treeMethods.addChild = function(value) {
+treeMethods.addChild = function(value) { // time complexity = O(1)
   
   this.children.push(Tree(value));
 };
 
-treeMethods.contains = function(target) {
+treeMethods.contains = function(target) { // time complexity = O(n)
   var output = false;
   var search = function(node) {
  
@@ -41,4 +41,4 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
- */  // linear complexity O(n)
+ */ 
